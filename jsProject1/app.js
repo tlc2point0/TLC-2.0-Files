@@ -1,5 +1,8 @@
 // JavaScript Project 1
 
+//ANOTHA ONE
+
+//AND ANOTHA ONE - Parker
 
 // Substitute console.log with c
 // Use controlled tell function instead?
