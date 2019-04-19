@@ -1,5 +1,7 @@
 // JavaScript Project 1
 
+//John edited this file
+
 
 // Substitute console.log with c
 // Use controlled tell function instead?
