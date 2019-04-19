@@ -1,6 +1,7 @@
 // JavaScript Project 1
 
-//I'm editing this file: Daniel Maldonado
+//Daniel has edited this file. 
+//I LIKE BIG BUTTS AND I CANNOT LIE
 
 // Substitute console.log with c
 // Use controlled tell function instead?
