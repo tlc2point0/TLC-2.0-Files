@@ -1,6 +1,10 @@
 // JavaScript Project 1
 
+
+//John edited this file
+
 //Whoops I did it again -Joe
+
 // Substitute console.log with c
 // Use controlled tell function instead?
 function c() {
