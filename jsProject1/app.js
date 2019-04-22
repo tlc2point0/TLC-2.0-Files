@@ -1,6 +1,10 @@
 // JavaScript Project 1
 
+<<<<<<< HEAD
 // Editing this file for the Cheat Sheet
+=======
+// Ramon has edited this file
+>>>>>>> b146c97a7545c65b6483c736e0919994e1e58b48
 
 // Substitute console.log with c
 // Use controlled tell function instead?
