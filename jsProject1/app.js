@@ -1,5 +1,6 @@
 // JavaScript Project 1
 
+// Editing this file for the Cheat Sheet
 
 // Substitute console.log with c
 // Use controlled tell function instead?
