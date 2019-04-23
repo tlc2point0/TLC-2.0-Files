@@ -1,7 +1,22 @@
 // JavaScript Project 1
 
+
 //Daniel has edited this file. 
 //I LIKE BIG BUTTS AND I CANNOT LIE
+
+// I'm editing this file - Jesse Dekel
+
+//ANOTHA ONE
+
+//AND ANOTHA ONE - Parker
+
+// Ramon has edited this file
+// Ramon has edited this file yet again!
+
+//John edited this file
+
+//Whoops I did it again -Joe
+
 
 // Substitute console.log with c
 // Use controlled tell function instead?
