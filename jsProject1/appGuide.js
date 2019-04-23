@@ -12,9 +12,7 @@ As an example, I'll make a simple choice for a room and execute a command there:
 
 // Making a new print function instead of console.log
 // Allows for quicker typing and does not print undefined in the Chrome console
-let c = function (s) {
-  console.log(s);
-}
+let c = s => console.log(s);
 
 function room() {
   c("There's a long white room with a window at the end.");
