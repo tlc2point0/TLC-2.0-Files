@@ -1,5 +1,9 @@
 // JavaScript Project 1
 
+
+//Daniel has edited this file. 
+//I LIKE BIG BUTTS AND I CANNOT LIE
+
 // I'm editing this file - Jesse Dekel
 
 //ANOTHA ONE
