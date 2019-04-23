@@ -26,14 +26,15 @@ function c() {
 
 
 // Define current state
-let States = {currentState: 'start', possibleStates: ['start', 'steelDoor', 'lastBoss', 'vampireRoom', 'DEATH']}
+let States = {currentState: 'start', possibleStates: ['start', 'steelDoor', 'lastBoss', 'vampireRoom']}
 
 // Inventory and status info
 let inventory = {
   hasStartKey: false, 
   hasVampirism: false,
+  hasLycanthropy: false,
   hasAstronautSuit: false,
-  itemCount: 0,
+  itemCount: 0
 };
 
 let playerStatus = {
@@ -100,7 +101,7 @@ function _checkStatus() {
 function _use() {
   switch (States.currentState) {
     case 'start':
-      c('You use the key and are now out of the cage!', '\nYou can now exit through a [broken] wood door or the [steel] door');
+      c('You use the key and are now out of the cage!', '\nYou can now exit through a [broken] wood door or the [steel] door.');
       break;
     case 'vampireRoom':
       break;
@@ -116,19 +117,23 @@ function vampireRoom() {
   c("There's a vampire in this room! She's extra friendly and has geeky glasses. You think she is cute.");
 };
 
+// Utility function: DOES NOT CHANGE STATE
+// Runs in case we die in any given state
+// Checks what state we're in, then gives different messages based on where we die
 function DEATH() {
-  // Edit the list of possible states to include DEATH
-  // Change current state variable to DEATH
-  States.currentState = 'DEATH';
+  let restartMessage = "Type [restart] to restart the game.";
   // Do death stuff depending on the state
+  console.error('YOU DIED.');
   switch (States.currentState) {
     case 'start':
-      c();
-      start();
+      c(`You waited too long and died of ${inventory.hasVampirism ? 'thirst' : 'hunger'}!
+      ${restartMessage}`);
       break;
     case 'steelDoor':
-      c();
-      start();
+      c(`You walk through the door, entering a dark, dank space. The floor is uneven with pits inside, punctuated by large metallic objects. It's slippery, so you trip on a sharp, conical object in the dark. 
+      Immediately, the room groans as if something is awakening. You hear a distant roar that comes close, shaking the floor and ceiling above you.
+      In a flash of darkness, the top and the bottom of the room converge together with you between them. Your body is squashed amongst numerous large spikes above and around you.
+      ${restartMessage}`);
       break;
   }
 }
@@ -141,6 +146,7 @@ function DEATH() {
 // Object.defineProperty(window, 'reach', {get: _reach});
 
 Object.defineProperties(window, {
+  'restart': {get: start},
   'look': {get: _look},
   'take': {get: _take},
   'check': {get: _checkStatus},
