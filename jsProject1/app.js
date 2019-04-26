@@ -143,15 +143,10 @@ function vampireRoom() {
 
 let transitionMessage = `She snaps her fingers, transporting you through the gateway between this dimension and `;
 
-let transitionObject = {
-  rg: `Ramon's dimension`,
-  ls: `Lionel's dimension`
-};
 
 function _rg() {
   States.currentState = "rg";
-  c(transitionMessage + transitionObject.rg);
-  // transitionMessageFunction(States.currentState)
+  c(transitionMessage + "Ramon's dimension.");
 }
 function _ls() {
   c(transitionMessage);
