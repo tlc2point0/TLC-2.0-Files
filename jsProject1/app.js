@@ -156,21 +156,39 @@ let transitionObject = {
   ls: `Lionel's dimension`
 };
 
-function _rg() {
+function _rg() { // Ramon
   States.currentState = "rg";
   c(transitionMessage + transitionObject.rg);
   // transitionMessageFunction(States.currentState)
 }
-function _ls() {
+function _ls() { // Lionel
   c(transitionMessage);
 }
-function _eu() {
+function _eu() { // Emmy
   c(transitionMessage);
 }
-function _as() {
+function _as() { // Alex
   c(transitionMessage);
 }
-function _jd() {
+function _jd() { // Jesse
+  c(transitionMessage);
+}
+function _zr() { // Zabdiel
+  c(transitionMessage);
+}
+function _pm() { // Parker
+  c(transitionMessage);
+}
+function _jm() { // John
+  c(transitionMessage);
+}
+function _aa() { // Angela
+  c(transitionMessage);
+}
+function _dm() { // Daniel
+  c(transitionMessage);
+}
+function _ct() { // Chris
   c(transitionMessage);
 }
 
