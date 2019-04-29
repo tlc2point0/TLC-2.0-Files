@@ -28,6 +28,24 @@ let States = {
   possibleStates: ["start", "steelDoor", "lastBoss", "vampireRoom"]
 };
 
+let Developers = {
+  rg: 'Ramon',
+  ls: 'Lionel',
+  eu: 'Emmy',
+  as: 'Alex',
+  jd: 'Jesse',
+  zr: 'Zabdiel',
+  pm: 'Parker',
+  jm: 'John',
+  aa: 'Angela',
+  dm: 'Daniel',
+  ct: 'Christian',
+}
+
+let printDevCommands = () => Object.entries(Developers).forEach(([initial, name]) => {
+  c(`[${initial}] for ${name}'s circle of hell`)
+})
+
 // Inventory and status info
 let inventory = {
   hasStartKey: false,
@@ -128,17 +146,7 @@ function vampireRoom() {
   c(
     "However, she is deadly serious in the face when she asks: 'Tell me what circle of hell you would like to explore. Here are you choices: ' "
   );
-  c(`      [rg] for Ramon's circle of hell
-      [ls] for Lionel's circle of hell
-      [eu] for Emmy's circle of hell
-      [as] for Alex's circle of hell
-      [jd] for Jesse's circle of hell
-      [zr] for Zabdiel's circle of hell
-      [pm] for Parker's circle of hell
-      [jm] for John's circle of hell
-      [aa] for Angela's circle of hell
-      [dm] for Daniel's circle of hell
-      [ct] for Christian's circle of hell`);
+  printDevCommands();
 }
 
 let transitionMessage = `She snaps her fingers, transporting you through the gateway between this dimension and `;
@@ -177,7 +185,7 @@ function DEATH() {
     case "start":
       c(`You waited too long and died of ${
         inventory.hasVampirism ? "thirst" : "hunger"
-      }!
+        }!
       ${restartMessage}`);
       break;
     case "steelDoor":
@@ -204,7 +212,14 @@ Object.defineProperties(window, {
   broken: { get: vampireRoom },
   steel: { get: steelDoor },
   wait: { get: DEATH },
-  rg: { get: _rg }
 });
+
+// Create a new command for each developer
+(function createDevCommands() {
+  Object.keys(Developers).forEach(initial => {
+    Object.defineProperty(window, `${initial}`, { get: window[`_${initial}`] });
+  });
+})()
+
 
 start();
