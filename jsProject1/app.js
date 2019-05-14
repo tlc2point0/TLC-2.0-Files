@@ -29,22 +29,23 @@ let States = {
 };
 
 let Developers = {
-  rg: 'Ramon',
-  ls: 'Lionel',
-  eu: 'Emmy',
-  as: 'Alex',
-  jd: 'Jesse',
-  zr: 'Zabdiel',
-  pm: 'Parker',
-  jm: 'John',
-  aa: 'Angela',
-  dm: 'Daniel',
-  ct: 'Christian',
-}
+  rg: "Ramon",
+  ls: "Lionel",
+  eu: "Emmy",
+  as: "Alex",
+  jd: "Jesse",
+  zr: "Zabdiel",
+  pm: "Parker",
+  jm: "John",
+  aa: "Angela",
+  dm: "Daniel",
+  ct: "Christian"
+};
 
-let printDevCommands = () => Object.entries(Developers).forEach(([initial, name]) => {
-  c(`[${initial}] for ${name}'s circle of hell`)
-})
+let printDevCommands = () =>
+  Object.entries(Developers).forEach(([initial, name]) => {
+    c(`[${initial}] for ${name}'s circle of hell`);
+  });
 
 // Inventory and status info
 let inventory = {
@@ -126,7 +127,7 @@ function _use() {
     case "start":
       c(
         "You use the key and are now out of the cage!",
-        "\nYou can now exit through a [broken] wood door or the [steel] door."
+        "\nYou can now exit through [a] broken wood door or the [steel] door."
       );
       break;
     case "vampireRoom":
@@ -149,41 +150,64 @@ function vampireRoom() {
   printDevCommands();
 }
 
+function _a() {
+  // check for the state you're in
+  // then, take the player to the state they are supposed to go based on what state they were in and where the command "a" said they would go
+  switch (States.currentState) {
+    case "start":
+      vampireRoom();
+      break;
+    // case "vampireRoom":
+    //   _rg();
+    //   break;
+  }
+}
+
 let transitionMessage = `She snaps her fingers, transporting you through the gateway between this dimension and `;
 
-
-function _rg() { // Ramon
+function _rg() {
+  // Ramon
   States.currentState = "rg";
   c(transitionMessage + "Ramon's dimension.");
 }
-function _ls() { // Lionel
+function _ls() {
+  // Lionel
   c(transitionMessage);
 }
-function _eu() { // Emmy
+function _eu() {
+  // Emmy
   c(transitionMessage);
 }
-function _as() { // Alex
+function _as() {
+  // Alex
   c(transitionMessage);
 }
-function _jd() { // Jesse
+function _jd() {
+  // Jesse
   c(transitionMessage);
 }
-function _zr() { // Zabdiel
+function _zr() {
+  // Zabdiel
   c(transitionMessage);
 }
-function _pm() { // Parker
+function _pm() {
+  // Parker
   c(transitionMessage);
 }
-function _jm() { // John
+function _jm() {
+  // John
   c(transitionMessage);
 }
-function _aa() { // Angela
+function _aa() {
+  // Angela
   c(transitionMessage);
 }
-function _dm() { // Daniel
+function _dm() {
+  // Daniel
   c(transitionMessage);
 }
-function _ct() { // Chris
+function _ct() {
+  // Chris
   c(transitionMessage);
 }
 
@@ -198,7 +222,7 @@ function DEATH() {
     case "start":
       c(`You waited too long and died of ${
         inventory.hasVampirism ? "thirst" : "hunger"
-        }!
+      }!
       ${restartMessage}`);
       break;
     case "steelDoor":
@@ -217,14 +241,14 @@ function DEATH() {
 // Object.defineProperty(window, 'reach', {get: _reach});
 
 Object.defineProperties(window, {
-  restart: { get: start },
   look: { get: _look },
   take: { get: _take },
-  check: { get: _checkStatus },
   use: { get: _use },
-  broken: { get: vampireRoom },
+  restart: { get: start },
+  check: { get: _checkStatus },
+  a: { get: _a },
   steel: { get: steelDoor },
-  wait: { get: DEATH },
+  wait: { get: DEATH }
 });
 
 // Create a new command for each developer
@@ -232,7 +256,6 @@ Object.defineProperties(window, {
   Object.keys(Developers).forEach(initial => {
     Object.defineProperty(window, `${initial}`, { get: window[`_${initial}`] });
   });
-})()
-
+})();
 
 start();
